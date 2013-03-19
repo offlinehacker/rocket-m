@@ -44,8 +44,9 @@ still image slides.
 Dependencies
 ------------
 
+* build-essentials
 * python 2.6 or 2.7
-* sun java6 (for stream-m)
+* sun jdk6 (for stream-m)
 
   .. note::
 
@@ -56,7 +57,20 @@ Dependencies
 Installation:
 -------------
 
-Buildout it with::
+First install build dependencies, if you are using debian based system do::
+
+    $ apt-get install build-essential autoconf libtool libv4l-dev libasound2-dev curl
+
+.. note::
+
+    You also need to install jdk6. While we could make it auto install, i think
+    you should use system package for it, but this could change if needed.
+
+If you want X11 capture support::
+
+    $ apt-get install libx11-dev libxext-dev libxfixes-dev
+
+Then buildout project with::
 
     $ cp buildout.d/development.cfg buildout.cfg
     $ python2.7 bootstrap.py
@@ -73,4 +87,3 @@ TODO:
 -----
 
 * Update docs
-* Build ffmpeg, motion and stream-m using buildout and remove from repo
