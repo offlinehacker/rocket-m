@@ -1,0 +1,20 @@
+bin
+lib
+local
+include
+*.pyc
+
+# buildout
+.installed.cfg
+parts
+eggs
+docs/html
+docs/doctrees
+
+# supervisor
+var
+config
+
+# stream
+slides
+.slide
