@@ -68,3 +68,9 @@ group::
 
     $ sudo usermod -a -G video,audio user
     $ newgrp video && newgrp video
+
+TODO:
+-----
+
+* Update docs
+* Build ffmpeg, motion and stream-m using buildout and remove from repo
