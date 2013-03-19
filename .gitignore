@@ -1,20 +1,20 @@
-bin
-lib
-local
-include
+/bin
+/lib
+/local
+/include
 *.pyc
 
 # buildout
-.installed.cfg
-parts
-eggs
-docs/html
-docs/doctrees
+/.installed.cfg
+/parts
+/eggs
+/docs/html
+/docs/doctrees
 
 # supervisor
-var
-config
+/var
+/config
 
 # stream
-slides
-.slide
+/slides
+/.slide
