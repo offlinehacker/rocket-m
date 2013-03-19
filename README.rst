@@ -46,7 +46,7 @@ Dependencies
 
 * build-essentials
 * python 2.6 or 2.7
-* sun jdk6 (for stream-m)
+* oracle jdk6 (for stream-m)
 
   .. note::
 
