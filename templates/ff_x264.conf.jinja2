@@ -1,0 +1,14 @@
+{#
+.. jinja:template:: ff_x264.conf.jinja2
+
+    Template for configuration of ffmpeg x264 output
+
+    :param acodec: Audio library (default: libmp3lame)
+    :param bitrate: Bitrate (default: 500k)
+    :param gop: Group of frames (default: 40)
+#}
+{% set acodec=acodec or "libmp3lame" %}
+{% set bitrate=bitrate or "500k" %}
+{% set gop=gop or "40" %}
+{% set sp=" "%}
+-vcodec libx264 -g {{gop}} -vb {{bitrate}} -profile:v baseline -acodec {{acodec}} -ar 44100 -ac 1 -f flv

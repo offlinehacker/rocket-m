@@ -1,0 +1,24 @@
+{#
+.. jinja:template:: ff_input.conf.jinja2
+
+    Template for configuration of ffmpeg input
+
+    :param device: Video device to use (default: /dev/video0)
+    :param device_framerate: Video device framerate (default: not set)
+    :param audio_device: Alsa device to use (default: hw:0,0,0)
+    :param width: Video width (default: 640)
+    :param height: Video height (default: 480)
+    :param use_mjpeg: Should mjpeg be used as device capture codec (default: False)
+    :param offset: Offset betwene video and audio (default: 00:00:00)
+#}
+{% set device=device or "/dev/video0" %}
+{% set device_framerate=device_framerate %}
+{% set audio_device=audio_device or "hw:0,0,0" %}
+{% set offset=offset or "00:00:00" %}
+{% set width=width or "640" %}{% set height=height or "480" %}
+{% set sp=" "%}
+-y 
+-f video4linux2 -s {{width}}x{{height}} 
+    {%- if use_mjpeg -%}{{sp}}-vcodec mjpeg{% endif %}
+    {%- if device_framerate -%}{{sp}}-r {{device_framerate}}{% endif %} -i {{device}}
+-f alsa -itsoffset {{offset}} -i {{audio_device}}
