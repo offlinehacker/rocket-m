@@ -1,0 +1,22 @@
+{#
+.. jinja:template:: ff_webm.conf.jinja2
+
+    Template for configuration of ffmpeg webm output
+
+    :param width: Video width (default: 640)
+    :param height: Video height (default: 480)
+    :param qmin: Minimal video quality (default: 20)
+    :param qmax: Max video quality (default: 52)
+    :param minrate: Minimal bitrate (default: 500k)
+    :param maxrate: Maximal bitrate (default: 1000k)
+    :param bitrate: Bitrate (default:500k)
+    :param gop: Group of frames (default: 40)
+#}
+{% set qmin=qmin or "20" %}{% set qmax=qmax or "52" %}
+{% set minrate=minrate or "500k" %}{% set maxrate=maxrate or "1000k" %}
+{% set bitrate=bitrate or "500k" %}
+{% set gop=gop or "40" %}
+{% set sp=" "%}
+-g {{gop}} -vcodec libvpx -qmin {{qmin}} -qmax {{qmax}}
+-minrate {{minrate}} -vb {{bitrate}} -maxrate {{maxrate}} -bufsize 1000k
+-threads 3 -acodec libvorbis -ac 1 -ab 96k -f webm
